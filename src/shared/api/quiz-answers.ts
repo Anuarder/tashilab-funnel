@@ -1,420 +1,258 @@
 export const quizAnswers = [
   {
-    question: 'What inspires you most about entering the IT world?',
+    question: 'What excites you most about IT?',
     answers: [
+      { icon: '🌍', title: 'Bringing ideas to life.', value: 'idea-creator' },
+      { icon: '💼', title: 'High pay & freedom.', value: 'financial-freedom' },
       {
-        title:
-          'The idea of building something that impacts millions of people.',
-        value: 'impact-builder',
+        icon: '🧠',
+        title: 'Learning & problem-solving.',
+        value: 'constant-learner',
       },
       {
-        title: 'Unlocking the potential for a high-paying, flexible career.',
-        value: 'flexible-career',
-      },
-      {
-        title: 'Becoming a mentor or leader in a field I love.',
-        value: 'mentor-leader',
-      },
-      {
-        title: 'Mastering new skills and challenging myself every day.',
-        value: 'skills-master',
+        icon: '🚀',
+        title: 'Innovation & creativity.',
+        value: 'innovation-thrill',
       },
     ],
   },
   {
-    question:
-      "Imagine you've mastered IT skills. What's your dream achievement?",
+    question: 'You land your dream IT job. First move?',
+    answers: [
+      { icon: '🎉', title: 'Celebrate!', value: 'celebrator' },
+      {
+        icon: '💡',
+        title: 'Start my dream project.',
+        value: 'project-starter',
+      },
+      { icon: '🔥', title: 'Inspire others.', value: 'inspirer' },
+      { icon: '🌎', title: 'Plan my next adventure.', value: 'adventurer' },
+    ],
+  },
+  {
+    question: 'Where do you see yourself in IT?',
+    answers: [
+      { icon: '🏗', title: 'Building cool things.', value: 'builder' },
+      { icon: '📈', title: 'Leading teams.', value: 'leader' },
+      { icon: '🎨', title: 'Designing visuals.', value: 'designer' },
+      { icon: '🛠', title: 'Solving tough problems.', value: 'problem-solver' },
+    ],
+  },
+  {
+    question: 'Why do you want to succeed in IT?',
     answers: [
       {
-        title: "Designing a product that people can't stop talking about.",
-        value: 'iconic-product',
+        icon: '🌟',
+        title: 'To build something memorable.',
+        value: 'legacy-builder',
       },
+      { icon: '🔐', title: 'Financial freedom.', value: 'freedom-seeker' },
       {
-        title: 'Writing code for a system that solves global problems.',
-        value: 'global-solver',
+        icon: '❤️',
+        title: 'Passion for learning.',
+        value: 'passionate-learner',
       },
+      { icon: '🏆', title: 'To inspire others.', value: 'inspiration' },
+    ],
+  },
+  {
+    question: "What's holding you back?",
+    answers: [
+      { icon: '🤯', title: 'Too many choices.', value: 'overwhelmed' },
+      { icon: '🕰', title: 'No time.', value: 'time-constrained' },
+      { icon: '🤷‍♂️', title: 'Doubt in my skills.', value: 'self-doubt' },
+      { icon: '🧭', title: 'Need a clear roadmap.', value: 'direction-seeker' },
+    ],
+  },
+  {
+    question: 'What does IT success mean to you?',
+    answers: [
+      { icon: '💻', title: 'Creating essential tech.', value: 'tech-creator' },
       {
-        title: 'Leading a team to launch the next big thing.',
-        value: 'team-launcher',
+        icon: '🏦',
+        title: 'A stable, growing career.',
+        value: 'career-focused',
       },
+      { icon: '👨‍🏫', title: 'Mentoring & leadership.', value: 'mentor' },
       {
-        title: 'Teaching others and seeing them succeed because of you.',
-        value: 'teaching-success',
+        icon: '🌎',
+        title: 'Freedom to work anywhere.',
+        value: 'location-independent',
       },
     ],
   },
   {
-    question: "What's your biggest reason for wanting to succeed in IT?",
+    question: "What's your biggest learning strength?",
+    answers: [
+      { icon: '🧠', title: 'Quick problem-solving.', value: 'quick-learner' },
+      { icon: '📚', title: 'Endless curiosity.', value: 'curious-mind' },
+      { icon: '🤝', title: 'Great at networking.', value: 'networker' },
+      { icon: '🎯', title: 'Unstoppable focus.', value: 'focused-learner' },
+    ],
+  },
+  {
+    question: "What's your gut feeling about IT?",
+    answers: [
+      { icon: '🤩', title: 'Endless possibilities.', value: 'optimistic' },
+      { icon: '🧐', title: 'A challenge to solve.', value: 'challenger' },
+      { icon: '🚀', title: 'My dream career.', value: 'dreamer' },
+      { icon: '🤔', title: 'Need more info first.', value: 'cautious' },
+    ],
+  },
+  {
+    question: 'If you could build anything, what would it be?',
     answers: [
       {
-        title: 'To express my creativity and turn ideas into reality.',
-        value: 'creative-expression',
+        icon: '🏗',
+        title: 'A groundbreaking product.',
+        value: 'product-innovator',
       },
+      { icon: '💡', title: 'A life-changing tool.', value: 'impact-maker' },
+      { icon: '🎨', title: 'A stunning design.', value: 'design-focused' },
       {
-        title: 'To have a stable, rewarding career that challenges me.',
-        value: 'stable-career',
-      },
-      {
-        title: 'To inspire and guide others in a meaningful way.',
-        value: 'guide-others',
-      },
-      {
-        title: 'To achieve freedom—whether financial, creative, or personal.',
-        value: 'achieve-freedom',
+        icon: '🛡',
+        title: 'A secure, powerful system.',
+        value: 'security-minded',
       },
     ],
   },
   {
-    question: 'If you could teach the world one thing, what would it be?',
+    question: 'How would you react to landing your dream IT job?',
     answers: [
+      { icon: '🕺', title: 'Finally!', value: 'accomplished' },
+      { icon: '😎', title: "Let's do this.", value: 'ready-to-start' },
+      { icon: '😍', title: 'My dream come true!', value: 'dream-achiever' },
+      { icon: '🎊', title: 'Time to celebrate!', value: 'celebratory' },
+    ],
+  },
+  {
+    question: 'Can anyone succeed in IT?',
+    answers: [
+      { icon: '✅', title: 'Yes!', value: 'confident' },
+      { icon: '❓', title: 'Maybe, I have doubts.', value: 'doubtful' },
       {
-        title: 'How to create beautiful and functional designs.',
-        value: 'teach-design',
+        icon: '⚡',
+        title: 'With the right guidance.',
+        value: 'guidance-seeker',
       },
       {
-        title: 'How to break down complex problems and solve them.',
-        value: 'teach-problem-solving',
-      },
-      {
-        title: 'How to manage projects and people to achieve success.',
-        value: 'teach-management',
-      },
-      {
-        title: 'How to think outside the box and explore new possibilities.',
-        value: 'teach-creativity',
+        icon: '🚀',
+        title: 'Definitely, I just need to start!',
+        value: 'motivated',
       },
     ],
   },
   {
-    question: 'What kind of legacy do you want to leave in the IT field?',
+    question: 'What keeps you motivated?',
     answers: [
-      {
-        title: 'A portfolio of stunning designs or products.',
-        value: 'legacy-designs',
-      },
-      {
-        title: 'Systems or tools that make life easier for others.',
-        value: 'legacy-tools',
-      },
-      {
-        title: "A team of professionals I've trained and inspired.",
-        value: 'legacy-team',
-      },
-      {
-        title: 'A reputation as a lifelong learner and innovator.',
-        value: 'legacy-learner',
-      },
+      { icon: '🏆', title: 'Big dreams.', value: 'dreamer' },
+      { icon: '💡', title: 'Endless curiosity.', value: 'curious' },
+      { icon: '👨‍👩‍👧‍👦', title: 'Supporting my family.', value: 'family-focused' },
+      { icon: '🚀', title: 'Pushing my limits.', value: 'challenger' },
     ],
   },
   {
-    question:
-      'What would you do if you had unlimited time to learn something new?',
+    question: 'What gets you out of bed in the morning?',
     answers: [
+      { icon: '🎨', title: 'Creating something beautiful.', value: 'creator' },
       {
-        title: 'Master the art of design and storytelling.',
-        value: 'learn-design',
-      },
-      {
-        title: 'Dive into coding and create my own applications.',
-        value: 'learn-coding',
-      },
-      {
-        title: 'Learn how to lead teams and manage big projects.',
-        value: 'learn-leadership',
-      },
-      {
-        title: 'Explore a variety of tech fields to find my unique path.',
-        value: 'learn-exploration',
-      },
-    ],
-  },
-  {
-    question: "What's holding you back from starting your IT journey today?",
-    answers: [
-      {
-        title: 'Not knowing which skills to focus on first.',
-        value: 'skills-focus',
-      },
-      {
-        title: 'Feeling overwhelmed by all the options.',
-        value: 'option-overload',
-      },
-      {
-        title: 'Worrying about staying committed.',
-        value: 'commitment-concern',
-      },
-      {
-        title: 'Not having the right roadmap to guide me.',
-        value: 'missing-roadmap',
-      },
-    ],
-  },
-  {
-    question: 'What type of success story resonates with you the most?',
-    answers: [
-      {
-        title: 'A self-taught designer who created a globally loved app.',
-        value: 'self-taught-designer',
-      },
-      {
-        title: 'A developer who solved a problem that no one else could.',
+        icon: '💻',
+        title: 'Solving tech challenges.',
         value: 'problem-solver',
       },
+      { icon: '👨‍🏫', title: 'Helping others grow.', value: 'mentor' },
+      { icon: '🌍', title: 'Exploring new possibilities.', value: 'explorer' },
+    ],
+  },
+  {
+    question: 'If you could master one IT skill instantly?',
+    answers: [
+      { icon: '🎨', title: 'Design.', value: 'design-focused' },
+      { icon: '🖥', title: 'Coding.', value: 'coding-focused' },
+      { icon: '📊', title: 'Leadership.', value: 'leadership-focused' },
+      { icon: '🔬', title: 'Emerging tech.', value: 'tech-focused' },
+    ],
+  },
+  {
+    question: 'Dream work environment?',
+    answers: [
       {
-        title: 'A mentor who helped others succeed in their careers.',
-        value: 'mentor-success',
+        icon: '🌆',
+        title: 'A creative, buzzing office.',
+        value: 'office-lover',
       },
+      { icon: '🏡', title: 'Remote freedom.', value: 'remote-worker' },
       {
-        title: 'An innovator who discovered a new way to approach IT.',
-        value: 'it-innovator',
+        icon: '🏢',
+        title: 'A driven, collaborative team.',
+        value: 'team-player',
+      },
+      { icon: '🚀', title: 'Running my own company.', value: 'entrepreneur' },
+    ],
+  },
+  {
+    question: 'How do you feel about your IT journey?',
+    answers: [
+      { icon: '😃', title: 'Excited for the future.', value: 'excited' },
+      { icon: '🧐', title: 'Curious but cautious.', value: 'cautious' },
+      { icon: '💪', title: 'Ready to dive in.', value: 'ready' },
+      {
+        icon: '🌟',
+        title: 'Taking it one step at a time.',
+        value: 'methodical',
       },
     ],
   },
   {
-    question: 'How do you feel when you think about mastering IT skills?',
+    question: "What's your biggest IT fear?",
     answers: [
+      { icon: '😰', title: 'Failing & wasting time.', value: 'failure-averse' },
+      { icon: '😵', title: 'Too much to learn.', value: 'overwhelmed' },
       {
-        title: 'Excited about expressing my creativity.',
-        value: 'creative-excitement',
+        icon: '😐',
+        title: 'Not being good enough.',
+        value: 'imposter-syndrome',
       },
       {
-        title: 'Eager to solve problems and create something impactful.',
-        value: 'problem-solving-excitement',
-      },
-      {
-        title: 'Ready to take charge and lead others to success.',
-        value: 'leadership-excitement',
-      },
-      {
-        title: 'Thrilled to keep learning and exploring new possibilities.',
-        value: 'learning-thrill',
+        icon: '🤷‍♂️',
+        title: 'Choosing the wrong path.',
+        value: 'direction-uncertain',
       },
     ],
   },
   {
-    question: 'What kind of work environment excites you the most?',
+    question: 'When are you most productive?',
     answers: [
+      { icon: '🌅', title: 'Early morning.', value: 'early-bird' },
+      { icon: '🌃', title: 'Late at night.', value: 'night-owl' },
+      { icon: '☕', title: 'Anytime with coffee.', value: 'coffee-powered' },
       {
-        title: 'A creative studio buzzing with ideas.',
-        value: 'creative-studio',
-      },
-      {
-        title: 'A focused workspace where I can solve big challenges.',
-        value: 'focused-workspace',
-      },
-      {
-        title: 'A dynamic team working toward a common goal.',
-        value: 'dynamic-team',
-      },
-      {
-        title: 'Anywhere—I just want the freedom to work my way.',
-        value: 'freedom-work',
+        icon: '🏖',
+        title: 'When relaxed & stress-free.',
+        value: 'stress-free',
       },
     ],
   },
   {
-    question:
-      'Imagine teaching someone an IT skill. What excites you most about it?',
+    question: 'What excites you about IT?',
     answers: [
+      { icon: '🌟', title: 'Making an impact.', value: 'impact-driven' },
+      { icon: '🛠', title: 'Building cool stuff.', value: 'builder' },
+      { icon: '🎯', title: 'Achieving big goals.', value: 'goal-oriented' },
       {
-        title: 'Showing them how to create something visually stunning.',
-        value: 'teach-visual-design',
-      },
-      {
-        title: 'Helping them solve a problem they thought impossible.',
-        value: 'teach-solving-problems',
-      },
-      {
-        title: 'Watching them grow into a confident professional.',
-        value: 'teach-professional-growth',
-      },
-      {
-        title: 'Inspiring them to explore and innovate in their own way.',
-        value: 'teach-innovation',
+        icon: '🧠',
+        title: 'Gaining new knowledge.',
+        value: 'knowledge-seeker',
       },
     ],
   },
   {
-    question: "What's your dream role in the IT world?",
+    question: 'Are you ready to start?',
     answers: [
-      {
-        title: 'The creative genius behind stunning designs and interfaces.',
-        value: 'creative-genius',
-      },
-      {
-        title: 'The technical expert who builds foundations for innovation.',
-        value: 'technical-expert',
-      },
-      {
-        title: 'The leader who inspires and guides teams to success.',
-        value: 'team-leader',
-      },
-      {
-        title: 'The explorer who constantly discovers new ways to grow.',
-        value: 'it-explorer',
-      },
-    ],
-  },
-  {
-    question:
-      'What kind of project would make you jump out of bed in the morning?',
-    answers: [
-      {
-        title: 'Crafting something that looks and feels amazing.',
-        value: 'amazing-crafts',
-      },
-      {
-        title: 'Tackling a technical challenge no one else has solved.',
-        value: 'unique-technical-challenge',
-      },
-      {
-        title: 'Guiding a team to achieve something incredible.',
-        value: 'team-guidance-project',
-      },
-      {
-        title: 'Exploring uncharted territory and blazing new trails.',
-        value: 'exploring-new-trails',
-      },
-    ],
-  },
-  {
-    question: "What's your secret superpower when it comes to learning?",
-    answers: [
-      {
-        title: 'Thinking creatively and seeing things differently.',
-        value: 'creative-thinking',
-      },
-      {
-        title: 'Breaking down problems into manageable steps.',
-        value: 'problem-breakdown',
-      },
-      {
-        title: 'Staying organized and keeping others motivated.',
-        value: 'organization-superpower',
-      },
-      {
-        title: 'Adapting quickly and learning on the go.',
-        value: 'quick-adaptability',
-      },
-    ],
-  },
-  {
-    question:
-      'If you could achieve one thing by learning IT skills, what would it be?',
-    answers: [
-      {
-        title: 'Design something iconic that people use daily.',
-        value: 'iconic-design',
-      },
-      {
-        title: 'Build a groundbreaking app or system.',
-        value: 'groundbreaking-app',
-      },
-      {
-        title: 'Lead a team to make a difference in the world.',
-        value: 'team-difference',
-      },
-      {
-        title: 'Empower others by teaching them how to succeed.',
-        value: 'empower-others',
-      },
-    ],
-  },
-  {
-    question: 'How do you define success in a tech career?',
-    answers: [
-      { title: 'Creating beautiful, memorable work.', value: 'success-beauty' },
-      {
-        title: 'Solving complex problems with elegant solutions.',
-        value: 'success-problem-solving',
-      },
-      {
-        title: 'Inspiring others and leading them to greatness.',
-        value: 'success-inspiring',
-      },
-      {
-        title: 'Having the freedom to live and work on my own terms.',
-        value: 'success-freedom',
-      },
-    ],
-  },
-  {
-    question: 'What do you dream about when thinking of IT professions?',
-    answers: [
-      {
-        title: 'Crafting creative projects people love.',
-        value: 'dream-creative-projects',
-      },
-      {
-        title: 'Mastering technical skills that open new doors.',
-        value: 'dream-technical-skills',
-      },
-      {
-        title: 'Becoming a respected leader and mentor.',
-        value: 'dream-leadership',
-      },
-      {
-        title: 'Exploring a world of exciting opportunities.',
-        value: 'dream-opportunities',
-      },
-    ],
-  },
-  {
-    question: "What's your first thought when hearing 'IT careers'?",
-    answers: [
-      { title: 'Endless creativity and innovation.', value: 'it-creativity' },
-      {
-        title: 'Challenging, meaningful work that matters.',
-        value: 'it-challenges',
-      },
-      {
-        title: 'Leadership, organization, and mentoring.',
-        value: 'it-leadership',
-      },
-      { title: 'Freedom, exploration, and possibility.', value: 'it-freedom' },
-    ],
-  },
-  {
-    question:
-      'If someone asked you why you want to learn IT, what would you say?',
-    answers: [
-      {
-        title: 'I want to create something meaningful and beautiful.',
-        value: 'reason-meaningful-creation',
-      },
-      {
-        title: 'I love solving puzzles and challenges.',
-        value: 'reason-solving-puzzles',
-      },
-      {
-        title: 'I want to help others succeed and reach their goals.',
-        value: 'reason-helping-others',
-      },
-      {
-        title: 'I want to explore all the possibilities this field offers.',
-        value: 'reason-exploration',
-      },
-    ],
-  },
-  {
-    question: 'What do you hope to gain from a guide to IT professions?',
-    answers: [
-      {
-        title: 'A clear path to mastering creative skills.',
-        value: 'guide-creative-path',
-      },
-      {
-        title: 'Insights into solving technical challenges.',
-        value: 'guide-technical-insights',
-      },
-      {
-        title: 'Tips for teaching and inspiring others.',
-        value: 'guide-teaching-tips',
-      },
-      {
-        title: 'A roadmap to discovering what fits me best.',
-        value: 'guide-roadmap',
-      },
+      { icon: '🎯', title: "Yes, let's go!", value: 'ready-to-start' },
+      { icon: '🤔', title: 'Not sure yet.', value: 'uncertain' },
+      { icon: '⚡', title: 'Need more info.', value: 'info-seeker' },
+      { icon: '🚀', title: "Absolutely, can't wait!", value: 'enthusiastic' },
     ],
   },
 ];

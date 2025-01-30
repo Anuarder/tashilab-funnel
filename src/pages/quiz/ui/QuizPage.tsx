@@ -61,10 +61,15 @@ export function QuizPage() {
                     <li key={index}>
                       <button
                         type="button"
-                        className="bg-white font-medium border rounded-lg w-full text-left p-3 active:bg-indigo-50 duration-200"
+                        className="flex space-x-2 bg-white font-medium border rounded-lg w-full text-left p-3 active:bg-indigo-50 duration-200"
                         onClick={() => goToNextQuiz()}
                       >
-                        {answer.title}
+                        <span>
+                          {answer.icon}
+                        </span>
+                        <span>
+                          {answer.title}
+                        </span>
                       </button>
                     </li>
                   ))}
