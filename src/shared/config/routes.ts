@@ -7,16 +7,16 @@
  * */
 
 export const ROUTES = {
-  ROOT() {
-    return {
-      pattern: '/',
-      path: () => '/',
-    };
+  ROOT: {
+    pattern: '/',
+    path: () => '/',
   },
-  QUIZ() {
-    return {
-      pattern: '/quiz',
-      path: () => '/quiz',
-    };
+  QUIZ: {
+    pattern: '/quiz/:slug',
+    path: (slug: string) => `/quiz/${slug}`,
+  },
+  LEGAL: {
+    pattern: '/legal/:slug',
+    path: (slug: string) => `/legal/${slug}`,
   },
 };

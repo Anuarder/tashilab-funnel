@@ -17,6 +17,8 @@ module.exports = {
         map: [
           ['~', './src'],
           ['~shared', './src/shared'],
+          ['~entities', './src/entities'],
+          ['~widgets', './src/widgets'],
         ],
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.css'],
       },

@@ -1,83 +1,75 @@
-import { AnimatePresence, motion } from 'motion/react';
-import { useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { quizAnswers } from '~shared/api';
+import { useCallback, useMemo } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { type Funnel, FunnelLib, QUIZ_PAGES_SLUGS } from '~entities/funnel';
 import { ROUTES } from '~shared/config';
-import { UiToolbar } from '~shared/ui';
+import { BaseLayout } from '~shared/layout/base-layout';
+import { QuizQuestionWidget } from '~widgets/quiz-question';
+import { QuizTeaserWidget } from '~widgets/quiz-teaser';
 
-const stepProgress = 100 / quizAnswers.length;
-
-export function QuizPage() {
-  const navigate = useNavigate();
-
-  const [activeQuestionIndex, setActiveQuestionIndex] = useState(0);
-
-  const progress = useMemo(
-    () => activeQuestionIndex * stepProgress,
-    [activeQuestionIndex]
+const getQuizPageWidgetByType = (content: Funnel['QuizPageContent']) =>
+  content.type === 'question' ? (
+    <QuizQuestionWidget content={content} />
+  ) : (
+    <QuizTeaserWidget content={content} />
   );
 
-  function goToNextQuiz() {
-    setTimeout(() => {
-      setActiveQuestionIndex(v => v + 1);
-    }, 150);
+const quizSlugsWithoutTeasers = QUIZ_PAGES_SLUGS.filter(
+  v => !v.includes('teaser')
+);
+
+const calculateProgress = (slug: string) => {
+  const index = quizSlugsWithoutTeasers.indexOf(slug);
+  return index === -1
+    ? 0
+    : ((index + 1) / quizSlugsWithoutTeasers.length) * 100;
+};
+
+export function QuizPage() {
+  const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
+
+  if (!slug || !QUIZ_PAGES_SLUGS.includes(slug)) {
+    throw new Error('ERROR_QUIZ_PAGE_SLUG_NOT_FOUND');
   }
 
-  function onGoToPreviousQuestion() {
-    if (activeQuestionIndex === 0) {
-      navigate(ROUTES.ROOT().path());
+  const quizPage = useMemo(
+    () => FunnelLib.getQuizPageContentBySlug(slug),
+    [slug]
+  );
+  if (!quizPage) {
+    throw new Error('ERROR_QUIZ_PAGE_CONTENT_NOT_FOUND');
+  }
 
-      return;
+  const prevQuizPageSlug = useMemo(
+    () => FunnelLib.getPreviousQuizPageSlug(quizPage.slug),
+    [quizPage]
+  );
+  if (!prevQuizPageSlug) {
+    throw new Error('ERROR_QUIZ_PAGE_PREV_NOT_FOUND');
+  }
+
+  const onGoBack = useCallback(() => {
+    if (prevQuizPageSlug.isFirstPage) {
+      navigate(ROUTES.ROOT.path());
+    } else {
+      navigate(ROUTES.QUIZ.path(prevQuizPageSlug.slug));
     }
+  }, [navigate, prevQuizPageSlug]);
 
-    setActiveQuestionIndex(v => v - 1);
-  }
+  const withProgressBar =
+    quizPage.type === 'question' && !quizPage.withoutProgress;
+  const progress = useMemo(() => calculateProgress(quizPage.slug), [quizPage]);
 
   return (
-    <main className="bg-slate-50 vh-full flex flex-col">
-      <UiToolbar
-        progress={progress}
-        events={{
-          onGoBack: onGoToPreviousQuestion,
-        }}
-      />
-
-      <AnimatePresence mode="wait">
-        {quizAnswers.map(
-          (item, index) =>
-            activeQuestionIndex === index && (
-              <motion.section
-                key={index}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="flex-1 px-4"
-              >
-                <h2 className="mt-5 text-center text-xl font-semibold">
-                  {item.question}
-                </h2>
-
-                <ul className="mt-8 space-y-4">
-                  {item.answers.map((answer, index) => (
-                    <li key={index}>
-                      <button
-                        type="button"
-                        className="flex space-x-2 bg-white font-medium border rounded-lg w-full text-left p-3 active:bg-indigo-50 duration-200"
-                        onClick={() => goToNextQuiz()}
-                      >
-                        <span>
-                          {answer.icon}
-                        </span>
-                        <span>
-                          {answer.title}
-                        </span>
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </motion.section>
-            )
-        )}
-      </AnimatePresence>
-    </main>
+    <BaseLayout
+      isCanGoBack={true}
+      withProgressBar={withProgressBar}
+      progress={progress}
+      events={{
+        onGoBack,
+      }}
+    >
+      {getQuizPageWidgetByType(quizPage)}
+    </BaseLayout>
   );
 }

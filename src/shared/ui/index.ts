@@ -1,1 +1,2 @@
-export { UiToolbar } from './toolbar';
+export { UiButton } from './button';
+export { UiHeadline } from './headline';
