@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { ROUTES } from '~shared/config';
 
 const PAGE_SLUGS = {
@@ -9,13 +10,13 @@ export function LegalLinks() {
   return (
     <p className="text-purple-text-primary group opacity-60 text-center text-xs">
       By choosing your age, you agree with{' '}
-      <a href={PAGE_SLUGS.terms} className="underline">
+      <Link to={PAGE_SLUGS.terms} className="underline">
         Terms and Conditions
-      </a>
+      </Link>
       ,{' '}
-      <a href={PAGE_SLUGS.privacy} className="underline">
+      <Link to={PAGE_SLUGS.privacy} className="underline">
         Privacy Policy
-      </a>
+      </Link>
     </p>
   );
 }
