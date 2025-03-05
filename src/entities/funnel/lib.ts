@@ -43,10 +43,15 @@ export function getLastQuizPageSlug() {
   return QUIZ_PAGES_SLUGS[QUIZ_PAGES_SLUGS.length - 1];
 }
 
+export function getFirstQuizPageSlug() {
+  return QUIZ_PAGES_SLUGS[0];
+}
+
 export const FunnelLib = {
   getQuizPageContentBySlug,
   getQuizPageSlug,
   getNextQuizPageSlug,
   getPreviousQuizPageSlug,
   getLastQuizPageSlug,
+  getFirstQuizPageSlug,
 };

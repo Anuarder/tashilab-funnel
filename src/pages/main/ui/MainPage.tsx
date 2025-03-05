@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { AgeSelector } from '~entities/age-selector';
-import { FUNNEL_CONFIG } from '~entities/funnel';
+import { FUNNEL_CONFIG, FunnelLib } from '~entities/funnel';
 import { LegalLinks } from '~entities/legal-links';
 import { ROUTES } from '~shared/config';
 import { BaseLayout } from '~shared/layout/base-layout';
@@ -14,7 +14,7 @@ export function MainPage() {
   function onAgeSelect(age: string) {
     console.log(age);
 
-    navigate(ROUTES.QUIZ.path(FUNNEL_CONFIG.quizPage[0].slug));
+    navigate(ROUTES.QUIZ.path(FunnelLib.getFirstQuizPageSlug()));
   }
 
   return (
