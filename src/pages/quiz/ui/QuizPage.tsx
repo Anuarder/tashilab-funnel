@@ -6,11 +6,74 @@ import { BaseLayout } from '~shared/layout/base-layout';
 import { QuizQuestionWidget } from '~widgets/quiz-question';
 import { QuizTeaserWidget } from '~widgets/quiz-teaser';
 
-const getQuizPageWidgetByType = (content: Funnel['QuizPageContent']) =>
-  content.type === 'question' ? (
-    <QuizQuestionWidget content={content} />
+function useGoToPrevPage(slug: string) {
+  const navigate = useNavigate();
+
+  const prevQuizPageSlug = useMemo(
+    () => FunnelLib.getPreviousQuizPageSlug(slug),
+    [slug]
+  );
+  if (!prevQuizPageSlug) {
+    throw new Error('ERROR_QUIZ_PAGE_PREV_NOT_FOUND');
+  }
+
+  const onGoToPrevPage = useCallback(() => {
+    if (prevQuizPageSlug.isFirstPage) {
+      navigate(ROUTES.ROOT.path());
+    } else {
+      navigate(ROUTES.QUIZ.path(prevQuizPageSlug.slug));
+    }
+  }, [navigate, prevQuizPageSlug]);
+
+  return {
+    onGoToPrevPage,
+  };
+}
+
+function useGoToNextPage(slug: string) {
+  const navigate = useNavigate();
+
+  const nextPageSlug = useMemo(
+    () => FunnelLib.getNextQuizPageSlug(slug),
+    [slug]
+  );
+  if (!nextPageSlug) {
+    throw new Error('ERROR_QUIZ_PAGE_NEXT_NOT_FOUND');
+  }
+
+  const onGoToNextPage = useCallback(() => {
+    if (nextPageSlug.isLastPage) {
+      navigate(ROUTES.CREATE_PLAN.path());
+    } else {
+      navigate(ROUTES.QUIZ.path(nextPageSlug.slug));
+    }
+  }, [navigate, nextPageSlug]);
+
+  return {
+    onGoToNextPage,
+  };
+}
+
+const getQuizPageWidgetByType = (props: {
+  content: Funnel['QuizPageContent'];
+  events: {
+    onGoToNextPage: () => void;
+  };
+}) =>
+  props.content.type === 'question' ? (
+    <QuizQuestionWidget
+      content={props.content}
+      events={{
+        onGoToNextPage: props.events.onGoToNextPage,
+      }}
+    />
   ) : (
-    <QuizTeaserWidget content={content} />
+    <QuizTeaserWidget
+      content={props.content}
+      events={{
+        onGoToNextPage: props.events.onGoToNextPage,
+      }}
+    />
   );
 
 const quizSlugsWithoutTeasers = QUIZ_PAGES_SLUGS.filter(
@@ -26,7 +89,6 @@ const calculateProgress = (slug: string) => {
 
 export function QuizPage() {
   const { slug } = useParams<{ slug: string }>();
-  const navigate = useNavigate();
 
   if (!slug || !QUIZ_PAGES_SLUGS.includes(slug)) {
     throw new Error('ERROR_QUIZ_PAGE_SLUG_NOT_FOUND');
@@ -40,24 +102,13 @@ export function QuizPage() {
     throw new Error('ERROR_QUIZ_PAGE_CONTENT_NOT_FOUND');
   }
 
-  const prevQuizPageSlug = useMemo(
-    () => FunnelLib.getPreviousQuizPageSlug(quizPage.slug),
+  const { onGoToPrevPage } = useGoToPrevPage(quizPage.slug);
+  const { onGoToNextPage } = useGoToNextPage(quizPage.slug);
+
+  const withProgressBar = useMemo(
+    () => quizPage.type === 'question' && !quizPage.withoutProgress,
     [quizPage]
   );
-  if (!prevQuizPageSlug) {
-    throw new Error('ERROR_QUIZ_PAGE_PREV_NOT_FOUND');
-  }
-
-  const onGoBack = useCallback(() => {
-    if (prevQuizPageSlug.isFirstPage) {
-      navigate(ROUTES.ROOT.path());
-    } else {
-      navigate(ROUTES.QUIZ.path(prevQuizPageSlug.slug));
-    }
-  }, [navigate, prevQuizPageSlug]);
-
-  const withProgressBar =
-    quizPage.type === 'question' && !quizPage.withoutProgress;
   const progress = useMemo(() => calculateProgress(quizPage.slug), [quizPage]);
 
   return (
@@ -66,10 +117,15 @@ export function QuizPage() {
       withProgressBar={withProgressBar}
       progress={progress}
       events={{
-        onGoBack,
+        onGoBack: onGoToPrevPage,
       }}
     >
-      {getQuizPageWidgetByType(quizPage)}
+      {getQuizPageWidgetByType({
+        content: quizPage,
+        events: {
+          onGoToNextPage,
+        },
+      })}
     </BaseLayout>
   );
 }

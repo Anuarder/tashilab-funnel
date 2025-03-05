@@ -1,7 +1,4 @@
-import { useCallback, useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { type Funnel, FunnelLib, QUIZ_ANSWER_TYPES } from '~entities/funnel';
-import { ROUTES } from '~shared/config';
+import { type Funnel, QUIZ_ANSWER_TYPES } from '~entities/funnel';
 import { UiHeadline } from '~shared/ui';
 
 import { QuizWithButtonsAnswers } from './QuizWithButtonsAnswers';
@@ -43,26 +40,12 @@ function getQuizContentByType(props: {
   }
 }
 
-export function QuizQuestionWidget(props: { content: Funnel['QuizQuestion'] }) {
-  const navigate = useNavigate();
-
-  const nextPageSlug = useMemo(
-    () => FunnelLib.getNextQuizPageSlug(props.content.slug),
-    [props.content.slug]
-  );
-
-  if (!nextPageSlug) {
-    throw new Error('ERROR_QUIZ_PAGE_NEXT_NOT_FOUND');
-  }
-
-  const onGoToNextPage = useCallback(() => {
-    if (nextPageSlug.isLastPage) {
-      navigate(ROUTES.ROOT.path());
-    } else {
-      navigate(ROUTES.QUIZ.path(nextPageSlug.slug));
-    }
-  }, [navigate, nextPageSlug]);
-
+export function QuizQuestionWidget(props: {
+  content: Funnel['QuizQuestion'];
+  events: {
+    onGoToNextPage: () => void;
+  };
+}) {
   return (
     <section className="flex flex-col pt-5 pb-6 px-4 overflow-auto">
       <UiHeadline
@@ -74,7 +57,7 @@ export function QuizQuestionWidget(props: { content: Funnel['QuizQuestion'] }) {
       {getQuizContentByType({
         content: props.content,
         events: {
-          onGoToNextPage,
+          onGoToNextPage: props.events.onGoToNextPage,
         },
       })}
     </section>

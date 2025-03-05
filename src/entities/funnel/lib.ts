@@ -39,9 +39,14 @@ export function getPreviousQuizPageSlug(currentSlug: string) {
     : null;
 }
 
+export function getLastQuizPageSlug() {
+  return QUIZ_PAGES_SLUGS[QUIZ_PAGES_SLUGS.length - 1];
+}
+
 export const FunnelLib = {
   getQuizPageContentBySlug,
   getQuizPageSlug,
   getNextQuizPageSlug,
   getPreviousQuizPageSlug,
+  getLastQuizPageSlug,
 };

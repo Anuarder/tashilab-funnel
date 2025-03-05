@@ -1,4 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
+import { CreatePlanPage } from '~/pages/create-plan';
+import { EmailPage } from '~/pages/email';
 import { LegalPage } from '~/pages/legal';
 import { MainPage } from '~/pages/main';
 import { QuizPage } from '~/pages/quiz';
@@ -16,5 +18,13 @@ export const router = createBrowserRouter([
   {
     path: ROUTES.LEGAL.pattern,
     Component: LegalPage,
+  },
+  {
+    path: ROUTES.EMAIL.pattern,
+    Component: EmailPage,
+  },
+  {
+    path: ROUTES.CREATE_PLAN.pattern,
+    Component: CreatePlanPage,
   },
 ]);

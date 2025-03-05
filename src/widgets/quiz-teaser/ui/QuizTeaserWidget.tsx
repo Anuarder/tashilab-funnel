@@ -1,29 +1,12 @@
-import { useCallback, useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { type Funnel, FunnelLib } from '~entities/funnel';
-import { ROUTES } from '~shared/config';
+import { type Funnel } from '~entities/funnel';
 import { UiButton } from '~shared/ui';
 
-export function QuizTeaserWidget(props: { content: Funnel['QuizTeaser'] }) {
-  const navigate = useNavigate();
-
-  const nextPageSlug = useMemo(
-    () => FunnelLib.getNextQuizPageSlug(props.content.slug),
-    [props.content.slug]
-  );
-
-  if (!nextPageSlug) {
-    throw new Error('ERROR_QUIZ_PAGE_NEXT_NOT_FOUND');
-  }
-
-  const onGoToNextPage = useCallback(() => {
-    if (nextPageSlug.isLastPage) {
-      navigate(ROUTES.ROOT.path());
-    } else {
-      navigate(ROUTES.QUIZ.path(nextPageSlug.slug));
-    }
-  }, [navigate, nextPageSlug]);
-
+export function QuizTeaserWidget(props: {
+  content: Funnel['QuizTeaser'];
+  events: {
+    onGoToNextPage: () => void;
+  };
+}) {
   return (
     <section className="flex flex-col items-center pt-5 pb-6 px-4 text-pretty overflow-auto">
       <div className="flex-1 pb-6">
@@ -43,7 +26,10 @@ export function QuizTeaserWidget(props: { content: Funnel['QuizTeaser'] }) {
       </div>
 
       <div className="sticky w-full bottom-0">
-        <UiButton title="Continue" events={{ onClick: onGoToNextPage }} />
+        <UiButton
+          title="Continue"
+          events={{ onClick: props.events.onGoToNextPage }}
+        />
       </div>
     </section>
   );

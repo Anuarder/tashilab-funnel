@@ -15,6 +15,14 @@ export const ROUTES = {
     pattern: '/quiz/:slug',
     path: (slug: string) => `/quiz/${slug}`,
   },
+  EMAIL: {
+    pattern: '/email',
+    path: () => '/email',
+  },
+  CREATE_PLAN: {
+    pattern: '/create-plan',
+    path: () => '/create-plan',
+  },
   LEGAL: {
     pattern: '/legal/:slug',
     path: (slug: string) => `/legal/${slug}`,
