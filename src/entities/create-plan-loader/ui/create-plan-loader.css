@@ -1,0 +1,42 @@
+.create-plan-loader {
+  --size: 150px;
+  --half-size: calc(var(--size) / 2);
+  --stroke-width: 10px;
+  --radius: calc((var(--size) - var(--stroke-width)) / 2);
+  --circumference: calc(var(--radius) * 2 * 3.1416);
+  --progress: 1;
+
+  width: var(--size);
+  height: var(--size);
+}
+
+.create-plan-loader circle {
+  cx: var(--half-size);
+  cy: var(--half-size);
+  r: var(--radius);
+  stroke-width: var(--stroke-width);
+  fill: none;
+  stroke-linecap: round;
+}
+
+.create-plan-loader__background {
+  stroke: #ddd;
+}
+
+.create-plan-loader__loader {
+  stroke: #5653FE;
+  transform: rotate(-90deg);
+  transform-origin: center;
+  stroke-dasharray: var(--circumference);
+  stroke-dashoffset: var(--circumference);
+  animation: progress-animation 7s ease-in-out forwards;
+}
+
+@keyframes progress-animation {
+  from {
+    stroke-dashoffset: var(--circumference);
+  }
+  to {
+    stroke-dashoffset: calc(var(--circumference) * (1  / 100) + 10);
+  }
+}

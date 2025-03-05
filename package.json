@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build:dev": "tsc && vite build -m development",
-    "build:stage": "tsc && vite build -m staging",
-    "build:prod": "tsc && vite build -m production",
+    "build:dev": "tsc && vite build -m development --emptyOutDir",
+    "build:stage": "tsc && vite build -m staging --emptyOutDir",
+    "build:prod": "tsc && vite build -m production --emptyOutDir",
     "test:unit": "",
     "format:check": "prettier --check '**/*.{html,cjs,mjs,cts,mts,js,jsx,ts,tsx,json,css,md,yml}'",
     "format": "prettier --write '**/*.{html,cjs,mjs,cts,mts,js,jsx,ts,tsx,json,css,md,yml}'",
@@ -18,7 +18,7 @@
   "dependencies": {
     "@tanstack/react-query": "5.29.0",
     "aws-amplify": "4.3.46",
-    "axios": "1.7.4",
+    "axios": "1.7.8",
     "classnames": "2.5.1",
     "dayjs": "1.11.10",
     "i18next": "23.8.2",
@@ -26,10 +26,12 @@
     "lodash-es": "4.17.21",
     "motion": "11.18.0",
     "react": "18.2.0",
+    "react-countup": "6.5.3",
     "react-dom": "18.2.0",
     "react-i18next": "14.0.4",
     "react-router-dom": "6.22.1",
-    "react-spring-bottom-sheet": "3.4.1"
+    "react-spring-bottom-sheet": "3.4.1",
+    "zustand": "5.0.3"
   },
   "devDependencies": {
     "@commitlint/cli": "18.4.3",
