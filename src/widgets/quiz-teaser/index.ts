@@ -1,1 +1,1 @@
-export { QuizTeaserWidget } from './ui/QuizTeaserWidget';
+export { default as QuizTeaserWidget } from './ui/QuizTeaserWidget.vue';

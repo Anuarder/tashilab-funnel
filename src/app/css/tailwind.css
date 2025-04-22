@@ -1,0 +1,9 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif';
+
+  --color-purple-primary: #5653fe;
+  --color-purple-text-primary: #24234c;
+  --color-secondary: #565B66;
+}

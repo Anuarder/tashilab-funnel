@@ -1,4 +1,4 @@
-import react from '@vitejs/plugin-react';
+import vue from '@vitejs/plugin-vue';
 import { URL, fileURLToPath } from 'node:url';
 import { defineConfig, loadEnv } from 'vite';
 
@@ -20,10 +20,11 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: BUILD_OUT_DIR,
     },
-    plugins: [react()],
+    plugins: [vue()],
     resolve: {
       alias: {
         '~': fileURLToPath(new URL('./src', import.meta.url)),
+        '~pages': fileURLToPath(new URL('./src/pages', import.meta.url)),
         '~shared': fileURLToPath(new URL('./src/shared', import.meta.url)),
         '~entities': fileURLToPath(new URL('./src/entities', import.meta.url)),
         '~widgets': fileURLToPath(new URL('./src/widgets', import.meta.url)),

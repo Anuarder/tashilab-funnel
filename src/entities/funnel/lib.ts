@@ -1,7 +1,14 @@
-import { FUNNEL_CONFIG, QUIZ_PAGES_SLUGS } from './funnel-data';
+import { FUNNEL_CONFIG, QUIZ_PAGES_SLUGS } from './funnel-data.ts';
+import type { QuizPageContent } from './types.ts';
 
-export function getQuizPageContentBySlug(slug: string) {
-  return FUNNEL_CONFIG.quizPage.find(page => page.slug === slug);
+export function getQuizPageContentBySlug(slug: string): QuizPageContent {
+  const quizPage = FUNNEL_CONFIG.quizPage.find((page) => page.slug === slug);
+
+  if (!quizPage) {
+    throw new Error('ERROR_QUIZ_PAGE_CONTENT_NOT_FOUND');
+  }
+
+  return quizPage;
 }
 
 function getQuizPageSlug(
@@ -27,20 +34,20 @@ function getQuizPageSlug(
 
 export function getNextQuizPageSlug(currentSlug: string) {
   const result = getQuizPageSlug(currentSlug, 'next');
-  return result
-    ? { slug: result.slug, isLastPage: result.isBoundaryPage }
-    : null;
+  return result ? { slug: result.slug, isLastPage: result.isBoundaryPage } : null;
 }
 
 export function getPreviousQuizPageSlug(currentSlug: string) {
   const result = getQuizPageSlug(currentSlug, 'previous');
-  return result
-    ? { slug: result.slug, isFirstPage: result.isBoundaryPage }
-    : null;
+  return result ? { slug: result.slug, isFirstPage: result.isBoundaryPage } : null;
 }
 
 export function getLastQuizPageSlug() {
   return QUIZ_PAGES_SLUGS[QUIZ_PAGES_SLUGS.length - 1];
+}
+
+export function getFirstQuizPageSlug() {
+  return QUIZ_PAGES_SLUGS[0];
 }
 
 export const FunnelLib = {
@@ -49,4 +56,5 @@ export const FunnelLib = {
   getNextQuizPageSlug,
   getPreviousQuizPageSlug,
   getLastQuizPageSlug,
+  getFirstQuizPageSlug,
 };

@@ -1,1 +1,1 @@
-export { UiHeadline } from './ui/UiHeadline';
+export { default as UiHeadline } from './ui/UiHeadline.vue';

@@ -1,1 +1,1 @@
-export { LegalPage } from './ui/LegalPage';
+export { default as LegalPage } from './ui/LegalPage.vue';
