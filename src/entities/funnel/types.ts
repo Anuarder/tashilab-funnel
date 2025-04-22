@@ -29,9 +29,15 @@ export type QuizAnswer = QuizQuestion['answers'][0];
 
 export type QuizPageContent = QuizTeaser | QuizQuestion;
 
+export type Review = {
+  rating: number;
+  title: string;
+  description: string;
+  author: string;
+};
+
 export interface FunnelConfig {
   mainPage: {
-    path: string;
     title: string;
     subtitle: string;
     description: string;
@@ -42,6 +48,11 @@ export interface FunnelConfig {
     }>;
   };
   quizPage: Array<QuizPageContent>;
+  createPlanPage: {
+    planTitle: string;
+    title: string;
+    reviews: Array<Review>;
+  };
 }
 
 export type Funnel = {

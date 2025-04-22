@@ -2,7 +2,6 @@ import age18Image from '~shared/assets/images/ages/age-18.svg';
 import age25Image from '~shared/assets/images/ages/age-25.svg';
 import age35Image from '~shared/assets/images/ages/age-35.svg';
 import age45Image from '~shared/assets/images/ages/age-45.svg';
-import { ROUTES } from '~shared/config/routes';
 
 import betterCareerImage from './assets/better-career.svg';
 import learningStyleImage from './assets/learning-style.svg';
@@ -10,11 +9,10 @@ import noExperienceImage from './assets/no-experience.svg';
 import readyForTechImage from './assets/ready-for-tech.svg';
 import turnItAmbitionsImage from './assets/turn-it-ambitions.svg';
 import { QUIZ_ANSWER_TYPES } from './config';
-import type { Funnel } from './types';
+import type { Funnel } from './types.ts';
 
 export const FUNNEL_CONFIG: Funnel['FunnelConfig'] = {
   mainPage: {
-    path: ROUTES.ROOT.path(),
     title: 'FIND YOUR IT CAREER PATH <br /> NOT JUST ANOTHER COURSE',
     subtitle: 'SELECT YOUR <b>AGE</b>',
     description: '<b>1-minute</b> quiz',
@@ -167,8 +165,7 @@ export const FUNNEL_CONFIG: Funnel['FunnelConfig'] = {
     {
       slug: 'control-over-job',
       type: 'question',
-      title:
-        'Do you wish you had more control over your work hours and location?',
+      title: 'Do you wish you had more control over your work hours and location?',
       answerType: QUIZ_ANSWER_TYPES.buttons,
       answers: [
         { slug: 'very-bad', icon: '👎' },
@@ -279,10 +276,8 @@ export const FUNNEL_CONFIG: Funnel['FunnelConfig'] = {
     {
       slug: 'goal-motivation',
       type: 'question',
-      title:
-        "What's your biggest motivation for building a successful IT career?",
-      subtitle:
-        "You're more likely to reach your goal if you have something important to aim for.",
+      title: "What's your biggest motivation for building a successful IT career?",
+      subtitle: "You're more likely to reach your goal if you have something important to aim for.",
       description: 'PICK ALL THAT <b>APPLY</b>',
       answerType: QUIZ_ANSWER_TYPES.multiple,
       answers: [
@@ -312,6 +307,36 @@ export const FUNNEL_CONFIG: Funnel['FunnelConfig'] = {
       ],
     },
   ],
+  createPlanPage: {
+    planTitle: 'Personalizing your journey',
+    title: '🚀 Join the IT Journey Today!',
+    reviews: [
+      {
+        rating: 5,
+        title: 'Perfect for beginners',
+        description:
+          'I had no clue where to start, but this guide gave me a clear path. I’m now freelancing and building real projects for clients.',
+        author: '<b>— Daniel</b>, freelance frontend developer',
+      },
+      {
+        rating: 5,
+        title: 'From hobby to hired',
+        description:
+          'I used to just play around with design in my spare time. Now I’ve got a polished portfolio and a full-time role at a design agency!',
+        author: '<b>— Ruby</b>, visual designer',
+      },
+      {
+        rating: 5,
+        title: 'Got my first job as a backend developer',
+        description:
+          'I followed the guide’s learning roadmap, built a portfolio, and landed my first job in just a few months!',
+        author: '<b>— Jessica</b>, junior backend developer',
+      },
+    ],
+  },
 };
 
-export const QUIZ_PAGES_SLUGS = FUNNEL_CONFIG.quizPage.map(page => page.slug);
+export const QUIZ_PAGES_SLUGS = FUNNEL_CONFIG.quizPage.map((page) => page.slug);
+export const QUIZ_PAGES_QUESTIONS_SLUGS = FUNNEL_CONFIG.quizPage
+  .filter((page) => page.type === 'question')
+  .map((page) => page.slug);

@@ -1,1 +1,1 @@
-export { LegalLinks } from './ui/LegalLinks';
+export { default as LegalLinks } from './ui/LegalLinks.vue';

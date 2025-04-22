@@ -1,1 +1,1 @@
-export { AppToolbar } from './ui/AppToolbar';
+export { default as AppToolbar } from './ui/AppToolbar.vue';

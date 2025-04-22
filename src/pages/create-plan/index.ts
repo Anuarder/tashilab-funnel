@@ -1,1 +1,1 @@
-export { CreatePlanPage } from './ui/CreatePlanPage';
+export { default as CreatePlanPage } from './ui/CreatePlanPage.vue';

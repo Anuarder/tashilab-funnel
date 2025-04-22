@@ -5,6 +5,7 @@
   --radius: calc((var(--size) - var(--stroke-width)) / 2);
   --circumference: calc(var(--radius) * 2 * 3.1416);
   --progress: 1;
+  --animation-duration: 9s;
 
   width: var(--size);
   height: var(--size);
@@ -24,12 +25,12 @@
 }
 
 .create-plan-loader__loader {
-  stroke: #5653FE;
+  stroke: #5653fe;
   transform: rotate(-90deg);
   transform-origin: center;
   stroke-dasharray: var(--circumference);
   stroke-dashoffset: var(--circumference);
-  animation: progress-animation 7s ease-in-out forwards;
+  animation: progress-animation var(--animation-duration) ease-out forwards;
 }
 
 @keyframes progress-animation {
@@ -37,6 +38,6 @@
     stroke-dashoffset: var(--circumference);
   }
   to {
-    stroke-dashoffset: calc(var(--circumference) * (1  / 100) + 10);
+    stroke-dashoffset: 0; /* Updated to make it go to 100% */
   }
 }

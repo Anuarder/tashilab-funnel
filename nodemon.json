@@ -1,0 +1,5 @@
+{
+  "watch": ["../public/assets/js/scripts/"],
+  "ext": "js",
+  "ignore": ["../public/assets/js/scripts/**/*.min.js"]
+}

@@ -1,1 +1,1 @@
-export { AgeSelector } from './ui/AgeSelector';
+export { default as AgeSelector } from './ui/AgeSelector.vue';

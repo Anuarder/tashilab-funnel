@@ -1,1 +1,1 @@
-export { EmailPage } from './ui/EmailPage';
+export { default as EmailPage } from './ui/EmailPage.vue';
