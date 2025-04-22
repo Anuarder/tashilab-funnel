@@ -12,7 +12,7 @@
     "build:dev": "vite build -m development --emptyOutDir",
     "build:stage": "vite build -m staging --emptyOutDir",
     "build:prod": "vite build -m production --emptyOutDir",
-    "test:unit": "vitest",
+    "test:unit": "vitest --passWithNoTests",
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",
     "format": "prettier --write src/",
