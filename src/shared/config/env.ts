@@ -6,4 +6,5 @@ export const env = {
   IS_DEV_RUNTIME: RUNTIME_MODE === 'development',
   PRIVACY_POLICY_URL: import.meta.env.VITE_APP_PRIVACY_POLICY_URL,
   TERMS_CONDITIONS_URL: import.meta.env.VITE_APP_TERMS_CONDITIONS_URL,
+  REFUND_POLICY_URL: import.meta.env.VITE_APP_REFUND_POLICY_URL,
 };

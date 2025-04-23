@@ -10,6 +10,7 @@
   const PAGE_SLUGS = {
     privacy: env.PRIVACY_POLICY_URL,
     terms: env.TERMS_CONDITIONS_URL,
+    refund: env.REFUND_POLICY_URL,
   };
 
   type PageSlug = keyof typeof PAGE_SLUGS;
