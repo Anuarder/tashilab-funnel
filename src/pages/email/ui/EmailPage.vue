@@ -129,7 +129,7 @@
               v-model="email"
               type="email"
               name="email"
-              class="placeholder:text-secondary focus:border-purple-primary focus:ring-purple-primary/20 block h-12 w-full rounded-md border bg-white pr-3 pl-11 text-sm duration-200 focus:ring-1 focus:outline-none"
+              class="placeholder:text-secondary focus:border-purple-primary focus:ring-purple-primary/20 block h-12 w-full rounded-md border bg-white pr-3 pl-11 duration-200 placeholder:text-sm focus:ring-1 focus:outline-none"
               :class="emailErrorMessage ? 'border-red-500' : 'border-gray-300'"
               placeholder="Your email"
             />
