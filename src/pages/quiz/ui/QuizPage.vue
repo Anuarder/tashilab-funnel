@@ -38,7 +38,7 @@
 </script>
 
 <template>
-  <section class="flex flex-col items-center overflow-auto px-4 pt-5 pb-6 text-pretty">
+  <section class="flex w-full flex-col items-center overflow-auto px-4 pt-5 pb-6 text-pretty">
     <QuizQuestionWidget
       v-if="quizPage.type === 'question'"
       :content="quizPage"

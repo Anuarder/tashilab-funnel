@@ -31,6 +31,7 @@
   stroke-dasharray: var(--circumference);
   stroke-dashoffset: var(--circumference);
   animation: progress-animation var(--animation-duration) ease-out forwards;
+  animation-delay: 0.3s; /* dirty hack who fix v-auto-animate */
 }
 
 @keyframes progress-animation {

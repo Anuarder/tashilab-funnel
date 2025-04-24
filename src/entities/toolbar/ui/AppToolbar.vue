@@ -20,7 +20,7 @@
 </script>
 
 <template>
-  <nav class="grid h-12 grid-cols-5 items-center px-4">
+  <nav v-auto-animate class="grid h-12 grid-cols-5 items-center px-4">
     <button v-if="isCanGoBack" type="button" @click="emit('onGoBack')">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
         <path

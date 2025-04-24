@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { computed } from 'vue';
-  import { type RouteLocationNormalizedLoadedGeneric, useRoute, useRouter } from 'vue-router';
+  import { useRoute, useRouter } from 'vue-router';
 
   import { BaseLayout } from '~shared/layout/base-layout';
 
@@ -52,31 +52,19 @@
       });
     }
   }
-
-  function getTranslateTrasition(route: RouteLocationNormalizedLoadedGeneric) {
-    if (route.query.direction === 'back') {
-      return '-translate-x-10';
-    }
-
-    return 'translate-x-10';
-  }
 </script>
 
 <template>
   <BaseLayout
-    :isCanGoBack="true"
-    :withProgressBar="withProgressBar"
+    :is-can-go-back="true"
+    :with-progress-bar="withProgressBar"
     :progress="progress"
     @onGoBack="onGoToPrevPage"
   >
-    <RouterView v-slot="{ Component, route }">
-      <Transition
-        enter-active-class="duration-300"
-        :enter-from-class="`opacity-0 ${getTranslateTrasition(route)}`"
-        enter-to-class="opacity-100 translate-x-0"
-      >
+    <div v-auto-animate class="grid grid-cols-1 overflow-hidden">
+      <RouterView v-slot="{ Component, route }">
         <component :is="Component" :key="route.path" />
-      </Transition>
-    </RouterView>
+      </RouterView>
+    </div>
   </BaseLayout>
 </template>

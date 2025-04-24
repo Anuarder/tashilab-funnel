@@ -25,27 +25,29 @@
 </script>
 
 <template>
-  <UiHeadline
-    :title="content.title"
-    :subtitle="content.subtitle"
-    :description="content.description"
-  />
+  <div class="flex w-full flex-1 flex-col">
+    <UiHeadline
+      :title="content.title"
+      :subtitle="content.subtitle"
+      :description="content.description"
+    />
 
-  <QuizWithRadioAnswers
-    v-if="content.answerType === QUIZ_ANSWER_TYPES.radio"
-    :content="content"
-    @onSelected="onSelected"
-  />
+    <QuizWithRadioAnswers
+      v-if="content.answerType === QUIZ_ANSWER_TYPES.radio"
+      :content="content"
+      @onSelected="onSelected"
+    />
 
-  <QuizWithMultipleAnswers
-    v-if="content.answerType === QUIZ_ANSWER_TYPES.multiple"
-    :content="content"
-    @onSelected="onSelected"
-  />
+    <QuizWithMultipleAnswers
+      v-if="content.answerType === QUIZ_ANSWER_TYPES.multiple"
+      :content="content"
+      @onSelected="onSelected"
+    />
 
-  <QuizWithButtonsAnswers
-    v-if="content.answerType === QUIZ_ANSWER_TYPES.buttons"
-    :content="content"
-    @onSelected="onSelected"
-  />
+    <QuizWithButtonsAnswers
+      v-if="content.answerType === QUIZ_ANSWER_TYPES.buttons"
+      :content="content"
+      @onSelected="onSelected"
+    />
+  </div>
 </template>

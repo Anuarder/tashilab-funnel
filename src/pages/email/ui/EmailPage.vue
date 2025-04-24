@@ -192,9 +192,9 @@
 
     <!-- Validation Popup -->
     <Transition name="popup-transition">
-      <div v-if="showPopup" class="fixed inset-x-4 bottom-22 z-50 mx-auto">
+      <div v-if="showPopup" class="fixed inset-x-4 bottom-22 z-10 flex justify-center">
         <div
-          class="flex items-center justify-between rounded-md border border-red-200 bg-red-50 p-4"
+          class="flex w-full max-w-[418px] items-center justify-between rounded-md border border-red-200 bg-red-50 p-4"
         >
           <div class="flex items-center">
             <div class="mr-3 flex-shrink-0">
