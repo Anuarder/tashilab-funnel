@@ -26,7 +26,7 @@
 
 <template>
   <main
-    class="text-purple-text-primary vh-full mx-auto grid max-w-[450px] grid-rows-[auto_1fr_auto] overflow-hidden"
+    class="text-purple-text-primary mx-auto grid h-dvh max-w-[450px] grid-rows-[auto_1fr_auto] overflow-hidden"
   >
     <header class="sticky top-0 flex justify-between bg-white px-4 py-3">
       <PaymentTimer @onTimerStopped="onTimerStopped" />

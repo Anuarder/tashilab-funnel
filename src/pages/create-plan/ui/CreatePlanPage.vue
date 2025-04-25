@@ -10,9 +10,9 @@
   const lastQuizPageSlug = FunnelLib.getLastQuizPageSlug();
   const createPlanPageContent = FUNNEL_CONFIG.createPlanPage;
 
-  const REDIRECT_SECONDS = 10;
+  const REDIRECT_SECONDS = 15;
   const REDIRECT_TIMEOUT = REDIRECT_SECONDS * 1000;
-  const REVIEW_INTERVAL = REDIRECT_TIMEOUT / createPlanPageContent.reviews.length;
+  const REVIEW_INTERVAL = REDIRECT_TIMEOUT / 5;
 
   const router = useRouter();
 
